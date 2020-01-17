@@ -26,12 +26,24 @@ public class UserDaoImpl implements UserDao {
 
         try {
             String sql = "select * from user where username = ? and password = ?";
-            User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class),username,password);
+            User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), username, password);
             return user;
         } catch (DataAccessException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 添加用户信息
+     *
+     * @param user
+     */
+    @Override
+    public void add(User user) {
+        String sql = "insert into user values(null,?,?,?,?,?,?,null,null)";
+        template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq()
+                , user.getEmail());
     }
 
 

@@ -49,7 +49,7 @@
         </form>
     </div>
     <div style="float: right;margin: 5px" >
-        <a class="btn bg-primary" href="add.html">添加联系人</a>
+        <a class="btn bg-primary" href="adduser.jsp">添加联系人</a>
         <a class="btn bg-primary" href="add.html">删除选中</a>
     </div>
     <table border="1" class="table table-bordered table-hover">
