@@ -41,4 +41,10 @@ public interface UserService {
      * @param user
      */
     void updateUser(User user);
+
+    /**
+     * 删除选中的用户信息
+     * @param ids
+     */
+    void delSelectedUser(String[] ids);
 }

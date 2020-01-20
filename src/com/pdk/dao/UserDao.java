@@ -8,9 +8,9 @@ import java.util.List;
  * 用户操作的Dao
  */
 public interface UserDao {
-    public List<User> findAll();
+    List<User> findAll();
 
-    public User findUserByUsernameAndPassword(String username,String password);
+    User findUserByUsernameAndPassword(String username, String password);
 
     void add(User user);
 
