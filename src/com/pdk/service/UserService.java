@@ -29,5 +29,16 @@ public interface UserService {
      */
     void deleteUserById(String id);
 
+    /**
+     * 根据id查询用户
+     * @param id
+     * @return
+     */
     User findUserById(String id);
+
+    /**
+     * 更新用户信息
+     * @param user
+     */
+    void updateUser(User user);
 }

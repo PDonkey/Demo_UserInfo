@@ -21,7 +21,8 @@
 
 <div class="container">
     <h3>修改用户信息</h3>
-    <form action="" method="post">
+    <form action="${pageContext.request.contextPath}/updateUserServlet" method="post">
+        <input type="hidden" name="id" value="${user.id}">
         <div class="form-group">
             <label for="name">姓名：</label>
             <input type="text" name="name" value="${user.name}" class="form-control" readonly id="name"
