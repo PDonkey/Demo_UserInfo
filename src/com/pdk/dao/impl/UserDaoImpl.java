@@ -46,5 +46,30 @@ public class UserDaoImpl implements UserDao {
                 , user.getEmail());
     }
 
+    /**
+     * 删除用户信息
+     *
+     * @param id
+     */
+    @Override
+    public void deleteUserById(int id) {
+        String sql = "delete from user where id = ?";
+        template.update(sql, id);
+
+    }
+
+    /**
+     * 根据用户id查询某个用户
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public User findUserById(int id) {
+        String sql = "select * from user where id = ?";
+        User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
+        return user;
+    }
+
 
 }

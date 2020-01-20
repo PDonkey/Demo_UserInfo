@@ -22,4 +22,12 @@ public interface UserService {
      * @param user
      */
     void addUser(User user);
+
+    /**
+     * 根据用户的id删除用户信息
+     * @param id
+     */
+    void deleteUserById(String id);
+
+    User findUserById(String id);
 }
