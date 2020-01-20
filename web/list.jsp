@@ -32,7 +32,16 @@
                 location.href = "${pageContext.request.contextPath}/delUserServlet?id=" + id
             }
         }
+
+        window.onload=function () {
+            //给删除选中按钮添加单击事件
+            document.getElementById("delSelected").onclick=function () {
+                //表单提交
+                document.getElementById("form_user").submit();
+            }
+        }
     </script>
+
 </head>
 <body>
 <div class="container">
@@ -57,8 +66,9 @@
     </div>
     <div style="float: right;margin: 5px">
         <a class="btn bg-primary" href="${pageContext.request.contextPath}/adduser.jsp">添加联系人</a>
-        <a class="btn bg-primary" href="add.html">删除选中</a>
+        <a class="btn bg-primary" href="javascript:void(0);" id="delSelected">删除选中</a>
     </div>
+    <form id="form_user" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
     <table border="1" class="table table-bordered table-hover">
         <tr class="success">
             <th><input type="checkbox"></th>
@@ -74,7 +84,7 @@
 
         <c:forEach items="${users}" var="user" varStatus="s">
             <tr>
-                <td><input type="checkbox"></td>
+                <td><input type="checkbox" name="uid" value="${user.id}"></td>
                 <td>${s.count}</td>
                 <td>${user.name}</td>
                 <td>${user.gender}</td>
@@ -93,7 +103,7 @@
         <%--            <td colspan="8" align="center"></td>--%>
         <%--        </tr>--%>
     </table>
-
+    </form>
     <div>
         <nav aria-label="Page navigation">
             <ul class="pagination">
