@@ -1,5 +1,6 @@
 package com.pdk.service;
 
+import com.pdk.domain.PageBean;
 import com.pdk.domain.User;
 
 import java.util.List;
@@ -47,4 +48,12 @@ public interface UserService {
      * @param ids
      */
     void delSelectedUser(String[] ids);
+
+    /**
+     * 查询一页数据
+     * @param currentPage
+     * @param rows
+     * @return
+     */
+    PageBean<User> findUserByPage(String currentPage, String rows);
 }

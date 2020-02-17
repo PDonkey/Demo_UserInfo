@@ -2,6 +2,7 @@ package com.pdk.service.impl;
 
 import com.pdk.dao.UserDao;
 import com.pdk.dao.impl.UserDaoImpl;
+import com.pdk.domain.PageBean;
 import com.pdk.domain.User;
 import com.pdk.service.UserService;
 
@@ -43,8 +44,31 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delSelectedUser(String[] ids) {
-        for (String id : ids) {
-            dao.deleteUserById(Integer.parseInt(id));
+        if (ids != null && ids.length > 0) {
+            for (String id : ids) {
+                dao.deleteUserById(Integer.parseInt(id));
+            }
         }
+
+    }
+
+    @Override
+    public PageBean<User> findUserByPage(String _currentPage, String _rows) {
+        int currentPage = Integer.parseInt(_currentPage);
+        int rows = Integer.parseInt(_rows);
+        PageBean<User> pageBean=new PageBean<User>();
+        pageBean.setCurrentPage(currentPage);
+        pageBean.setRows(rows);
+        //查询总条目
+//       int totalCount=dao.findTotalCount();
+//        pageBean.setTotalCount(totalCount);
+//        //计算开始查询的索引
+//        int start=(currentPage-1)*rows;
+//        List<User> userList=dao.findByPageList(start,rows);
+//        pageBean.setLis(userList);
+//        pageBean.setTotalPage();
+
+
+        return null;
     }
 }

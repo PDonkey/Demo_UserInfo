@@ -36,8 +36,21 @@
         window.onload = function () {
             //给删除选中按钮添加单击事件
             document.getElementById("delSelected").onclick = function () {
-                //表单提交
-                document.getElementById("form_user").submit();
+
+                if (confirm("确定删除选中条目吗？")) {
+                    var flag = false;
+                    var cbs = document.getElementsByName("uid");
+                    for (var i = 0; i < cbs.length; i++) {
+                        if (cbs[i].checked) {
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        //表单提交
+                        document.getElementById("form_user").submit();
+                    }
+                }
             }
 
 
